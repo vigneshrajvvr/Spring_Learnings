@@ -12,8 +12,12 @@ public class HelloController {
     public String sayHello(@RequestParam(required = false,
             defaultValue = "World") String name, Model model) {
 
+        // Spring takes keys and values from the model and adds them
+        //to the HTTP request
         model.addAttribute("user", name);
-        
+
+        // Spring forwards to /templates/<name>.html
+        // using the Thymeleaf view resolver
         return "hello";
     }
 
