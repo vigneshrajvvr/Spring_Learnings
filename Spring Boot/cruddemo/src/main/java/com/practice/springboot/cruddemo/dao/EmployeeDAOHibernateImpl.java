@@ -67,8 +67,8 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO{
 		Session currentSession = entityManager.unwrap(Session.class);
 		
 		//delete objekt with primary key
-		Query theQuery = currentSession.createQuery("delete from Employee where id:=employeeId");
-		theQuery.setParameter("ëmployeeId", theId);
+		Query theQuery = currentSession.createQuery("delete from Employee where id=:employeeId");
+		theQuery.setParameter("employeeId", theId);
 		
 		theQuery.executeUpdate();
 	}
