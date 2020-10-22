@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Employees Directory</title>
@@ -27,6 +27,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,6 +35,17 @@
 					<td th:text="${tempEmployee.firstName}"></td>
 					<td th:text="${tempEmployee.lastName}"></td>
 					<td th:text="${tempEmployee.email}"></td>
+
+					<!-- Add update button/link -->
+					<td><a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
+						class="btn btn-info btn-sm">Update</a>
+
+					<!-- Add delete button/link -->
+					<a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
+						class="btn btn-danger btn-sm"
+						onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">Delete</a>
+
+					</td>
 				</tr>				
 			</tbody>
 
