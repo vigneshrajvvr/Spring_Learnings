@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+
+// spring.factories file contains all the configuration details
 // Dependency Injection
  
 @SpringBootApplication
