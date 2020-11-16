@@ -2,6 +2,8 @@ package com.practice.vvr.inmemory;
 
 import java.security.Principal;
 
+
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,17 +19,25 @@ import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+// Once authenticated, authentication object will be passed for authorization.
+// In this case authorization is done by Principal.
+
+// UserDetailsManager extends UserDetailsService. 
+// It has ability ability to create new users and update existing ones.
+
+
 @SpringBootApplication
 public class InmemoryApplication {
 	
-	// Provides bean for type of authentication which has to be used
-	// In memory authentication
+		// In memory authentication
 	@Bean
 	UserDetailsManager inMemoryAuthentication() {
 		return new InMemoryUserDetailsManager();
 	}
 	
-	// Creation of users
+	// Creation of users.
+	// For bean implemented InitializingBean, it will run afterPropertiesSet() after all bean properties have been set.
 	@Bean
 	InitializingBean initializer(UserDetailsManager manager) {
 		return () -> {
@@ -52,7 +62,7 @@ class GreentingsRestController {
 	//A user or application that can authenticate itself is known as a principal. A principal has a name that uniquely identifies it.
 	@GetMapping("/greeting")
 	String greeting (Principal principal) {
-		return "hello, " + principal.getName() + "!";
+		return "hello, " + principal.getName() + "! " + principal.toString();
 	}
 	
 }
