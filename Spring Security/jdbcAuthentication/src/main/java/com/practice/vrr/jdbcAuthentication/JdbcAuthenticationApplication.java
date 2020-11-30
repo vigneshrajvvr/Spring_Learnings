@@ -42,7 +42,7 @@ public class JdbcAuthenticationApplication {
 	}
 	
 	// Creation of users.
-	// For bean implemented InitializingBean, it will run afterPropertiesSet() after all bean properties have been set.
+	// For bean implemented InitializingBean, it will run after afterPropertiesSet() - after all bean properties have been set.
 	@Bean
 	InitializingBean initializer(UserDetailsManager manager) {
 		return () -> {
