@@ -11,7 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-		@Override
+	//ldap configuration using authentication manager builder
+	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			auth.ldapAuthentication()
 				.userDnPatterns("uid={0},ou=people")    // format of dn in ldif file
