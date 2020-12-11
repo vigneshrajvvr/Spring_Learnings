@@ -53,8 +53,8 @@ public class LoginApplication {
 @ControllerAdvice
 class PrincipalControllerAdvice {
 	
-	@ModelAttribute("currentUser") 
-	Principal principal(Principal p) {
+	@ModelAttribute("currentUser")  
+	Principal principal(Principal p) { 
 		return p;  
 	}
 	
