@@ -1,28 +1,43 @@
 package com.practice.vvr.customauthentication;
 
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class CustomAuthenticationApplication {
+	
+	@Bean
+	CustomUserDetailsService customUserDetailsService() {
+		
+		Collection<UserDetails> users = Arrays.asList(
+				new CustomUserDetails("jlong", "password", true, "USER"),
+				new CustomUserDetails("ROB", "password", true, "USER", "ADMIN")
+				);
+		
+		return new CustomUserDetailsService(users);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(CustomAuthenticationApplication.class, args);
@@ -55,7 +70,6 @@ class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 }
 
-@Service
 class CustomUserDetailsService implements UserDetailsService {
 	
 	private final Map<String, UserDetails> users= new ConcurrentHashMap<>();
@@ -78,7 +92,7 @@ class CustomUserDetailsService implements UserDetailsService {
 
 class CustomUserDetails implements UserDetails {
 	
-	private final Set<GrantedAuthority> authorities = new HashSet<>();
+	private Set<GrantedAuthority> authorities = new HashSet<>();
 	private final String username, password;
 	private final boolean active;
 	
@@ -86,41 +100,43 @@ class CustomUserDetails implements UserDetails {
 		this.username = username;
 		this.password = password;
 		this.active = active;
+		this.authorities = Stream.of(authorities).map(SimpleGrantedAuthority::new).collect(Collectors.toSet());
+				
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return this.authorities;
 	}
 
 	@Override
 	public String getPassword() {
-		return null;
+		return this.password;
 	}
 
 	@Override
 	public String getUsername() {
-		return null;
+		return this.username;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return this.active;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return this.active;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return this.active;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return this.active;
 	}
 	
 }
