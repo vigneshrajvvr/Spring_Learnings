@@ -22,18 +22,25 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class CustomAuthenticationApplication {
 	
+	@Bean 
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
 	@Bean
 	CustomUserDetailsService customUserDetailsService() {
 		
 		Collection<UserDetails> users = Arrays.asList(
-				new CustomUserDetails("jlong", "password", true, "USER"),
-				new CustomUserDetails("ROB", "password", true, "USER", "ADMIN")
+				new CustomUserDetails("jlong", new BCryptPasswordEncoder().encode("password"), true, "USER"),
+				new CustomUserDetails("ROB", new BCryptPasswordEncoder().encode("password"), true, "USER", "ADMIN")
 				);
 		
 		return new CustomUserDetailsService(users);
