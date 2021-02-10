@@ -8,9 +8,3 @@ name VARCHAR(20),
 description VARCHAR(20),
 price INT
 );
-
-CREATE TABLE Student(
-id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(20),
-testScore INT
-);
