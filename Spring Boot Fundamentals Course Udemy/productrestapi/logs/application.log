@@ -1,0 +1,128 @@
+2021-02-21 21:30:03.947  INFO 12248 --- [restartedMain] c.p.v.s.ProductrestapiApplication        : Starting ProductrestapiApplication using Java 15 on vicky with PID 12248 (E:\Programming\Spring\Spring_Learnings\Spring Boot Fundamentals Course Udemy\productrestapi\target\classes started by vickyv in E:\Programming\Spring\Spring_Learnings\Spring Boot Fundamentals Course Udemy\productrestapi)
+2021-02-21 21:30:03.959  INFO 12248 --- [restartedMain] c.p.v.s.ProductrestapiApplication        : No active profile set, falling back to default profiles: default
+2021-02-21 21:30:04.236  INFO 12248 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-02-21 21:30:04.237  INFO 12248 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-02-21 21:30:12.754  INFO 12248 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-02-21 21:30:13.175  INFO 12248 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 396 ms. Found 1 JPA repository interfaces.
+2021-02-21 21:30:16.953  INFO 12248 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-02-21 21:30:17.009  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 21:30:17.010  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 21:30:17.692  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 21:30:17.694  INFO 12248 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 13454 ms
+2021-02-21 21:30:18.504  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-21 21:30:20.009  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-21 21:30:20.377  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 21:30:20.799  INFO 12248 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-21 21:30:21.685  INFO 12248 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-21 21:30:22.267  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 21:30:24.582  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 21:30:24.608  INFO 12248 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-21 21:30:25.653  WARN 12248 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-21 21:30:25.987  INFO 12248 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 21:30:26.828  INFO 12248 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-02-21 21:30:26.950  INFO 12248 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/productsapi'
+2021-02-21 21:30:26.988  INFO 12248 --- [restartedMain] c.p.v.s.ProductrestapiApplication        : Started ProductrestapiApplication in 25.287 seconds (JVM running for 29.911)
+2021-02-21 21:32:11.575  INFO 12248 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 21:32:11.597  INFO 12248 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-02-21 21:32:11.719  INFO 12248 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 122 ms
+2021-02-21 21:32:12.629  INFO 12248 --- [http-nio-8081-exec-1] c.p.v.s.controller.ProductController     : Finding product by id : 1
+2021-02-21 21:50:04.436  INFO 12248 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 21:50:04.982  INFO 12248 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-21 21:50:06.878  INFO 12248 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-21 21:50:08.664  INFO 12248 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-02-21 21:50:17.362  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 21:50:17.363  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 21:50:17.524  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 21:50:17.684  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-02-21 21:50:17.967  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-02-21 21:50:17.988  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 21:50:18.021  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 21:50:18.406  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:01:00.084  INFO 12248 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-02-21 22:01:00.995  INFO 12248 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-02-21 22:01:12.211  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:01:12.212  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:01:12.610  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:01:12.970  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-02-21 22:01:13.188  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-02-21 22:01:13.258  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:01:13.341  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:01:14.016  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:01:17.333  INFO 12248 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-02-21 22:01:17.397  INFO 12248 --- [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-02-21 22:01:18.937  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:01:18.938  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:01:18.996  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:01:19.121  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-02-21 22:01:19.194  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-02-21 22:01:19.203  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:01:19.226  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:01:19.308  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:02:50.401  INFO 12248 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-02-21 22:02:50.424  INFO 12248 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-02-21 22:02:52.423  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:02:52.425  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:02:52.539  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:02:52.868  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-02-21 22:02:52.971  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-02-21 22:02:52.977  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:02:52.990  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:02:53.050  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:02:55.196  INFO 12248 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-02-21 22:02:55.213  INFO 12248 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-02-21 22:02:56.143  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:02:56.144  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:02:56.190  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:02:56.280  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-02-21 22:02:56.345  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-02-21 22:02:56.350  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:02:56.361  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:02:56.435  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:03:20.410  INFO 12248 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-02-21 22:03:20.704  INFO 12248 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-02-21 22:03:23.031  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:03:23.033  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:03:23.117  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:03:23.278  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-02-21 22:03:23.333  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-02-21 22:03:23.355  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:03:23.377  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:03:23.417  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:03:25.378  INFO 12248 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-02-21 22:03:25.392  INFO 12248 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2021-02-21 22:03:26.482  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:03:26.484  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:03:26.570  INFO 12248 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:03:26.725  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2021-02-21 22:03:26.817  INFO 12248 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2021-02-21 22:03:26.822  INFO 12248 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:03:26.834  INFO 12248 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:03:26.887  INFO 12248 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:06:27.468  INFO 12248 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 22:07:41.861  INFO 12248 --- [RMI TCP Connection(51)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2021-02-21 22:07:41.915  INFO 12248 --- [RMI TCP Connection(51)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2021-02-21 22:08:16.962  INFO 11436 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:08:16.976  INFO 11436 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:08:17.657  INFO 11436 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:08:19.522  INFO 11436 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-21 22:08:21.164  INFO 11436 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-21 22:08:21.465  INFO 11436 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:08:21.804  INFO 11436 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-21 22:08:23.351  INFO 11436 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-21 22:08:28.310  INFO 11436 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:08:39.061  INFO 11436 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:10:23.196  INFO 11436 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-21 22:10:23.222  INFO 11436 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-02-21 22:10:50.013  INFO 11032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-21 22:10:50.021  INFO 11032 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 22:10:50.429  INFO 11032 --- [restartedMain] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring embedded WebApplicationContext
+2021-02-21 22:10:51.364  INFO 11032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-21 22:10:52.748  INFO 11032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-21 22:10:52.946  INFO 11032 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-21 22:10:53.133  INFO 11032 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-21 22:10:53.755  INFO 11032 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-21 22:10:54.242  INFO 11032 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-02-21 22:10:56.737  INFO 11032 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-21 22:11:02.973  INFO 11032 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[.[localhost].[/productsapi]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 22:13:10.951  INFO 11032 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-21 22:13:10.977  INFO 11032 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

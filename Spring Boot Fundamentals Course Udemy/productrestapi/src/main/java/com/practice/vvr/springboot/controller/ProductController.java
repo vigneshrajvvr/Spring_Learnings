@@ -2,6 +2,8 @@ package com.practice.vvr.springboot.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +18,8 @@ import com.practice.vvr.springboot.repository.ProductRepository;
 @RestController
 public class ProductController {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
+	
 	private ProductRepository productRepository;
 	
 	public ProductController(ProductRepository productRepository) {
@@ -29,6 +33,7 @@ public class ProductController {
 	
 	@GetMapping("/products/{id}")
 	public Product getProduct(@PathVariable("id") int id) {
+		LOGGER.info("Finding product by id : "+id);
 		return productRepository.findById(id).get();
 	}
 	
