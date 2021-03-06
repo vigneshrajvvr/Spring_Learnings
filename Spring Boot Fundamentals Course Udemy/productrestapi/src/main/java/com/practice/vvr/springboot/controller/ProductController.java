@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +35,8 @@ public class ProductController {
 	}
 	
 	@GetMapping("/products/{id}")
+	@Transactional(readOnly=true)
+	@Cacheable("product-cache")
 	public Product getProduct(@PathVariable("id") int id) {
 		LOGGER.info("Finding product by id : "+id);
 		return productRepository.findById(id).get();
@@ -48,6 +53,7 @@ public class ProductController {
 	}
 	
 	@DeleteMapping("/products/{id}")
+	@CacheEvict("product-cache")
 	public void deleteProduct(@PathVariable("id") int id) {
 		 productRepository.deleteById(id);
 	}
