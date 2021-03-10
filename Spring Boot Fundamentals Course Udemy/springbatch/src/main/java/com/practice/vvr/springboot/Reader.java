@@ -12,14 +12,14 @@ public class Reader implements ItemReader<String> {
 
 	@Override
 	public String read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-		if(count > courses.length) {
-			count = 0;
+		System.out.println("Inside read method : ");
+		if(count < courses.length) {
+			String result = courses[count];
+			count++;
+			
+			return result;
 		}
-		
-		String result = courses[count];
-		count++;
-		
-		return result;
+		return null;		
 	}
 
 }
