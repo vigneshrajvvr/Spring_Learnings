@@ -9,8 +9,12 @@ description VARCHAR(20),
 price INT
 );
 
+USE mydb;
+
 CREATE TABLE Student(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(20),
-testScore INT
+testscore INT
 );
+
+drop table Student;
