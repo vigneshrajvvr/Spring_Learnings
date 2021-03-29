@@ -16,6 +16,7 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jdbc.DataSourceUnwrapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -67,6 +68,8 @@ public class BatchConfig {
 		lineMapper.setLineTokenizer(lineTokenizer);
 		lineMapper.setFieldSetMapper(fieldSetMapper);
 		
+		reader.setLineMapper(lineMapper);
+		
 		return reader;
 		
 	}
@@ -92,8 +95,8 @@ public class BatchConfig {
 	public DataSource dataSource() {
 		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("https://localhost:3306/mydb");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
 		dataSource.setUsername("springstudent");
 		dataSource.setPassword("springstudent");
 		return dataSource;
