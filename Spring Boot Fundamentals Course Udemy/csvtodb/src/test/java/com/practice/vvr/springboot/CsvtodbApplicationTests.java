@@ -21,7 +21,7 @@ class CsvtodbApplicationTests {
 	private JobLauncher jobLauncher;
 
 	@Test
-	void contextLoads() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
+	void testBatch() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
 		jobLauncher.run(job, new JobParametersBuilder().addLong("Time", System.currentTimeMillis()).toJobParameters());
 	}
 

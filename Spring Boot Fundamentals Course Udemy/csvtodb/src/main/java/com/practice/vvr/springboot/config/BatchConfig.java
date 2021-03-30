@@ -54,7 +54,7 @@ public class BatchConfig {
 	@Bean
 	public ItemReader<Product> reader() {
 		FlatFileItemReader<Product> reader = new FlatFileItemReader<>();
-		reader.setResource(new ClassPathResource("prodct.csv"));
+		reader.setResource(new ClassPathResource("product.csv"));
 		
 		// Specifies the data with default delimiter ,
 		DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
@@ -87,13 +87,12 @@ public class BatchConfig {
 		JdbcBatchItemWriter<Product> writer = new JdbcBatchItemWriter<>();
 		writer.setDataSource(dataSource());
 		writer.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
-		writer.setSql("INSERT INTO PRODUCT (ID,NAME,DESCRIPTION,PRICE) VALUES (:id,:name,:description,:price)");
+		writer.setSql("INSERT INTO product (id,name,description,price) VALUES (:id,:name,:description,:price)");
 		return writer;
 	}
 	
 	@Bean
 	public DataSource dataSource() {
-		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
