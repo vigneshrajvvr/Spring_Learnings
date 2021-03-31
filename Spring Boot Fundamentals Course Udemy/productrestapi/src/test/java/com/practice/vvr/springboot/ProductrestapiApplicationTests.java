@@ -13,6 +13,9 @@ import com.practice.vvr.springboot.entity.Product;
 @SpringBootTest
 class ProductrestapiApplicationTests {
 	
+	/*
+	 * Integration testing
+	 */
 	@Value("${productrestapi.services.url}")
 	private String baseURL;
 
