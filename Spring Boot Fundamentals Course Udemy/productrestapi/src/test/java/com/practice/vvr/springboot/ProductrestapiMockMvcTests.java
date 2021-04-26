@@ -67,11 +67,11 @@ public class ProductrestapiMockMvcTests {
 				.andExpect(content().json(objectWriter.writeValueAsString(products)));
 	}
 
-	@Test
-	public void testGetProductById() {
-		Product product = buildProduct();
-		when(productRepository.findById(PRODUCTS_URL)).thenReturn(product);
-	}
+//	@Test
+//	public void testGetProductById() {
+//		Product product = buildProduct();
+//		when(productRepository.findById(PRODUCTS_URL)).thenReturn(product);
+//	}
 
 	@Test
 	public void testCreateProduct() throws JsonProcessingException, Exception {
