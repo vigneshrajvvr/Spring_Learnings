@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -67,11 +69,16 @@ public class ProductrestapiMockMvcTests {
 				.andExpect(content().json(objectWriter.writeValueAsString(products)));
 	}
 
-//	@Test
-//	public void testGetProductById() {
-//		Product product = buildProduct();
-//		when(productRepository.findById(PRODUCTS_URL)).thenReturn(product);
-//	}
+	@Test
+	public void testGetProductById() throws JsonProcessingException, Exception {
+		Product product = buildProduct();
+		when(productRepository.findById(PRODUCT_ID)).thenReturn(Optional.of(product));
+		
+		ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		ResultMatcher result = content().json(objectWriter.writeValueAsString(product));
+		mockMvc.perform(get(PRODUCTS_URL).contextPath(CONTEXT_URL)).andExpect(status().isOk())
+				.andExpect(result);
+	}
 
 	@Test
 	public void testCreateProduct() throws JsonProcessingException, Exception {
