@@ -48,7 +48,7 @@ public class ProductrestapiMockMvcTests {
 
 	private static final String PRODUCT_NAME = "Macbook";
 
-	private static final int PRODUCT_ID = 1;
+	private static final Integer PRODUCT_ID = 1;
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -75,9 +75,8 @@ public class ProductrestapiMockMvcTests {
 		when(productRepository.findById(PRODUCT_ID)).thenReturn(Optional.of(product));
 		
 		ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		ResultMatcher result = content().json(objectWriter.writeValueAsString(product));
-		mockMvc.perform(get(PRODUCTS_URL).contextPath(CONTEXT_URL)).andExpect(status().isOk())
-				.andExpect(result);
+		mockMvc.perform(get(PRODUCTS_URL + "/" + PRODUCT_ID).contextPath(CONTEXT_URL)).andExpect(status().isOk())
+				.andExpect(content().json(objectWriter.writeValueAsString(product)));
 	}
 
 	@Test
