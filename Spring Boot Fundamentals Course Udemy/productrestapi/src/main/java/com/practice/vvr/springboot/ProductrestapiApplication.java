@@ -10,7 +10,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) 
 //To disable auto configuration for data source
 @EnableCaching
-@EnableSwagger2            //To enable usage of swagger
+@EnableSwagger2            
+// To enable usage of swagger 
+// Path - localhost:port/contextpath/v2/api-docs - localhost:8081/productsapi/v2/api-docs
 public class ProductrestapiApplication {
 
 	public static void main(String[] args) {
