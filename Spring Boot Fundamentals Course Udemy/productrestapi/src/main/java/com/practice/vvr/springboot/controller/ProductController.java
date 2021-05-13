@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.practice.vvr.springboot.entity.Product;
 import com.practice.vvr.springboot.repository.ProductRepository;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 public class ProductController {
 	
@@ -30,6 +31,11 @@ public class ProductController {
 		this.productRepository = productRepository;
 	}
 	
+	@ApiOperation(value="Retrieves all the products",
+				  notes="List all the products",
+				  response=Product.class,
+				  responseContainer="List",
+				  produces="application/json")
 	@GetMapping("/products")
 	public List<Product> getProducts() {
 		return productRepository.findAll();
