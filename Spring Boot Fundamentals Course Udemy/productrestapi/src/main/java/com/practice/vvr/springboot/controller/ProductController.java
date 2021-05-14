@@ -2,6 +2,8 @@ package com.practice.vvr.springboot.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
@@ -50,7 +52,7 @@ public class ProductController {
 	}
 	
 	@PostMapping("/products")
-	public Product createProduct(@RequestBody Product product) {
+	public Product createProduct(@Valid @RequestBody Product product) {
 		return productRepository.save(product);
 	}
 	
