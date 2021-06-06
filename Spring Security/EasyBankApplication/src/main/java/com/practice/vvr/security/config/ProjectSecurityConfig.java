@@ -67,11 +67,14 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * 
 	 */
 	
+	
+	/*
+	 * In memory authentication - to have users within the application
+	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("admin").password("12345").authorities("admin").and()
 			.withUser("user").password("12345").authorities("read").and()
 			.passwordEncoder(NoOpPasswordEncoder.getInstance());
-		
 	}
 }
