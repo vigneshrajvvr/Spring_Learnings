@@ -3,6 +3,7 @@ package com.practice.vvr.controller;
 import java.net.URI;
 import java.util.List;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,8 @@ import com.practice.vvr.repository.UserDaoService;
 @RestController
 public class UserController {
 	
+	private final Logger USER_LOGGER = Logger.getLogger(UserController.class);
+		
 	@Autowired
 	private UserDaoService userDaoService;
 	
@@ -45,12 +48,14 @@ public class UserController {
 	@PostMapping("/users")
 	public ResponseEntity<Object> createUser(@RequestBody User user) {
 		User savedUser = userDaoService.save(user);
-		
+				
 		URI location = ServletUriComponentsBuilder
 									.fromCurrentRequest()
 									.path("/{id}")
 									.buildAndExpand(savedUser.getId())
 									.toUri();
+		
+		USER_LOGGER.info(location.getPath());
 		
 		return ResponseEntity.created(location).build();
 	}
