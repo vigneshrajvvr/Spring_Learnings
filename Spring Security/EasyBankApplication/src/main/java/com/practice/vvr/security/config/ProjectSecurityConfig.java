@@ -85,6 +85,15 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 	 *	}
 	 */
 	
+	/*
+	 * User management flow
+	 * 
+	 * UserDetailsManager     ->     UserDetailsService       -> UserDetails
+	 * (InMemoryUserDetailsManager,
+	 *  JdbcUserDetailsManager,
+	 *  LdapUserDetailsManager)
+	 */
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
