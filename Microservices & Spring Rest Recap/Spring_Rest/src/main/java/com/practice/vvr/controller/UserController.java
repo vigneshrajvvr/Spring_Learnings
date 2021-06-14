@@ -6,6 +6,7 @@ import java.util.List;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,6 +65,19 @@ public class UserController {
 		USER_LOGGER.info(location.getPath());
 		
 		return ResponseEntity.created(location).build();
+	}
+	
+	/*
+	 * When deleting a user, we can return 200 Ok status (return type as void)
+	 * or no content status -> return a response entity with no content status
+	 */
+	@DeleteMapping("/users/{id}")
+	public User deleteUser(@PathVariable("id") int userId) {
+		User deletedUser = userDaoService.delete(userId);
+		if(deletedUser == null) {
+			throw new UserNotFoundException("Id-"+userId);
+		}
+		return deletedUser;
 	}
 	
 }
