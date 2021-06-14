@@ -3,6 +3,8 @@ package com.practice.vvr.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +50,7 @@ public class UserController {
 	//input - details of user
 	//output - Created response & return the created uri
 	@PostMapping("/users")
-	public ResponseEntity<Object> createUser(@RequestBody User user) {
+	public ResponseEntity<Object> createUser(@Valid @RequestBody User user) {
 		
 		if(user.getName().trim().equals("")) {
 			throw new FieldException("Name field cannot be empty");
