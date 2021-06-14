@@ -30,19 +30,12 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(response, HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(FieldException.class)
-	public final ResponseEntity<Object> handleFieldException(Exception ex, WebRequest request) {
-		ExceptionResponse response = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
-		
-		return new ResponseEntity(response, HttpStatus.BAD_REQUEST);
-	}
-	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(
 			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 		
 		ExceptionResponse response = new ExceptionResponse(new Date(), "Validation Error", ex.getBindingResult().toString());
 		
-		return handleExceptionInternal(ex, null, headers, status, request);
+		return new ResponseEntity(response, HttpStatus.BAD_REQUEST);
 	}
 }

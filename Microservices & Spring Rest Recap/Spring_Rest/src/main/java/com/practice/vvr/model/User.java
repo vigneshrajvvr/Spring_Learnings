@@ -9,7 +9,7 @@ public class User {
 
 	private Integer id;
 
-	@Size(min=2)
+	@Size(min=2, max = 10, message="Name should be atlease 2-10 characters")
 	private String name;
 
 	@Past
