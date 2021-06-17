@@ -48,6 +48,7 @@ public class UserController {
 			throw new UserNotFoundException("Id-"+id);
 		}
 		
+		// To add additional data related to the model		
 		EntityModel<User> model = EntityModel.of(user);
 		
 		WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
