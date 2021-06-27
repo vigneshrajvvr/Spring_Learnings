@@ -96,15 +96,18 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		
 		InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
+		
 		UserDetails user1 = User.withUsername("admin").password("12345").authorities("admin").build();
 		UserDetails user2 = User.withUsername("user").password("12345").authorities("admin").build();
+		
 		userDetailsService.createUser(user1);
 		userDetailsService.createUser(user2);
 		
 		auth.userDetailsService(userDetailsService);
 
-	}
+	} 
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
