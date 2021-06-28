@@ -29,6 +29,11 @@
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency> 
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
 		
@@ -38,6 +43,13 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 		-->
+		
+		<!--  Support for documentation of API -->
+		<dependency>
+      		<groupId>org.springdoc</groupId>
+      		<artifactId>springdoc-openapi-ui</artifactId>
+      		<version>1.5.9</version>
+   		</dependency>
 		
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
