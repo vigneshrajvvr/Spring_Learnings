@@ -101,7 +101,7 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		UserDetails user1 = User.withUsername("admin").password("12345").authorities("admin").build();
 		UserDetails user2 = User.withUsername("user").password("12345").authorities("admin").build();
-		
+				
 		userDetailsService.createUser(user1);
 		userDetailsService.createUser(user2);
 		
