@@ -15,6 +15,7 @@ import com.practice.vvr.model.FilteredBean;
 @RestController
 public class FilterController {
 	
+	//field1, field2
 	@GetMapping("/filtering")
 	public MappingJacksonValue retrieve() {
 		
@@ -22,8 +23,7 @@ public class FilterController {
 	
 		SimpleBeanPropertyFilter filterProperty = SimpleBeanPropertyFilter.filterOutAllExcept("field1", "field2");
 		
-		FilterProvider filterProvider = new SimpleFilterProvider();
-		filterProvider.findPropertyFilter("SomeBeanFilter", filterProperty);
+		FilterProvider filterProvider = new SimpleFilterProvider().addFilter("SomeBeanFilter", filterProperty);
 		
 		MappingJacksonValue mapping = new MappingJacksonValue(filteredBean);
 		mapping.setFilters(filterProvider);
@@ -32,9 +32,19 @@ public class FilterController {
 	}
 	
 	@GetMapping("/filtering-list")
-	public List<FilteredBean> retrieveList() {
-		return Arrays.asList(new FilteredBean("Value11", "Value12", "Value13"),
-				                 new FilteredBean("Value21", "Value22", "Value23"));
+	public MappingJacksonValue retrieveList() {
+		
+		List<FilteredBean> filterList = Arrays.asList(new FilteredBean("Value11", "Value12", "Value13"),
+                new FilteredBean("Value21", "Value22", "Value23"));
+		
+		SimpleBeanPropertyFilter filterProperty = SimpleBeanPropertyFilter.filterOutAllExcept("field2", "field3");
+		
+		FilterProvider filterProvider = new SimpleFilterProvider().addFilter("SomeBeanFilter", filterProperty);
+		
+		MappingJacksonValue mapping = new MappingJacksonValue(filterList);
+		mapping.setFilters(filterProvider);
+		
+		return mapping;
 	}
 
 }
