@@ -93,7 +93,7 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 	 *  JdbcUserDetailsManager,
 	 *  LdapUserDetailsManager)
 	 */
-	 
+	  
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
