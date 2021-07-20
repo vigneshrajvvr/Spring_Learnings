@@ -7,6 +7,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import org.jboss.logging.Logger;
@@ -23,13 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.practice.vvr.controller.exception.UserNotFoundException;
+import com.practice.vvr.model.Post;
 import com.practice.vvr.model.User;
-import com.practice.vvr.repository.UserDaoService;
 import com.practice.vvr.repository.UserRepository;
 
 @RestController
 public class UserJpaController {
 	
+
 	private final Logger USER_LOGGER = Logger.getLogger(UserJpaController.class);
 	
 	@Autowired
@@ -86,6 +88,19 @@ public class UserJpaController {
 	@DeleteMapping("/jpa/users/{id}")
 	public void deleteUser(@PathVariable("id") int userId) {
 		userRepository.deleteById(userId);
+	}
+	
+	//GET /users
+	//retrieveAllPosts
+	@GetMapping("/jpa/users/{id}/posts")
+	public List<Post> retrieveAllPosts(@PathVariable("id") int id) {
+		Optional<User> user = userRepository.findById(id);
+		
+		if(!user.isPresent()) {
+			throw new UserNotFoundException("Id-"+id);
+		}
+		
+		return user.get().getPosts();
 	}
 	
 }
