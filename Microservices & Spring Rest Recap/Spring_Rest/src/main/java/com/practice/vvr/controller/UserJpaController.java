@@ -31,9 +31,6 @@ import com.practice.vvr.repository.UserRepository;
 public class UserJpaController {
 	
 	private final Logger USER_LOGGER = Logger.getLogger(UserJpaController.class);
-		
-	@Autowired
-	private UserDaoService userDaoService;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -87,16 +84,8 @@ public class UserJpaController {
 	 * or no content status -> return a response entity with no content status
 	 */
 	@DeleteMapping("/jpa/users/{id}")
-	public User deleteUser(@PathVariable("id") int userId) {
-		Optional<User> deletedUser = userRepository.findById(userId);
-		
-		if(!deletedUser.isPresent()) {
-			throw new UserNotFoundException("Id-"+userId);
-		}
-		
+	public void deleteUser(@PathVariable("id") int userId) {
 		userRepository.deleteById(userId);
-		
-		return deletedUser.get();
 	}
 	
 }
