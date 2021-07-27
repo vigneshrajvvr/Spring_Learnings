@@ -14,11 +14,11 @@ primary key (id)
 
 drop table if exists authorities;
 create table authorities(
-id int  not null,
+id int not null auto_increment,
 username varchar(45) not null, 
 authority varchar(45) not null,
 primary key (id)
 );
 
-insert into users values(1, 'happy', '12345', null);
+insert into users values(null, 'happy', '12345', '1');
 insert into authorities values(1, 'happy', 'write');
