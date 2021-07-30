@@ -21,4 +21,4 @@ primary key (id)
 );
 
 insert into users values(null, 'happy', '12345', '1');
-insert into authorities values(1, 'happy', 'write');
+insert into authorities values(null, 'happy', 'write');
