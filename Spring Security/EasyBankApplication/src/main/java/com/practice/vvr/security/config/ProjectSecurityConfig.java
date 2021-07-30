@@ -1,15 +1,15 @@
 package com.practice.vvr.security.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 @Configuration
 public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -94,8 +94,9 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 	 *  LdapUserDetailsManager)
 	 */
 	  
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	/*
+	 @Override
+	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
 		
@@ -106,8 +107,13 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 		userDetailsService.createUser(user2);
 		
 		auth.userDetailsService(userDetailsService);
-
 	} 
+	*/
+	
+	@Bean
+	public UserDetailsService userDetailsService(DataSource dataSource) {
+		return new JdbcUserDetailsManager(dataSource);
+	}
 	
 	
 	@Bean
