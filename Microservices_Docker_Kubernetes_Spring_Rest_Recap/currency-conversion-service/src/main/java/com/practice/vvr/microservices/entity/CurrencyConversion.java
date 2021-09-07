@@ -10,6 +10,10 @@ public class CurrencyConversion {
 	private BigDecimal quantity;
 	private BigDecimal totalCalculatedAmount;
 	private String environment;
+	
+	public CurrencyConversion() {
+		super();
+	}
 
 	public CurrencyConversion(Long id, String from, String to, BigDecimal conversionMultiple, BigDecimal quantity,
 			BigDecimal totalCalculatedAmount, String environment) {
