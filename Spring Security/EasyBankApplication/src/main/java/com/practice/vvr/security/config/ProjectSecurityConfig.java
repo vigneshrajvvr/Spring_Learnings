@@ -108,7 +108,7 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		auth.userDetailsService(userDetailsService);
 	} 
-	*/
+	*/ 
 	
 	@Bean
 	public UserDetailsService userDetailsService(DataSource dataSource) {
