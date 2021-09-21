@@ -9,7 +9,7 @@ import com.practice.vvr.microservices.entity.CurrencyConversion;
 @FeignClient(name="currency-exchange", url="localhost:8000")
 public interface CurrencyExchangeProxy {
 	
-	@GetMapping("currency-exchange/from/{from}/to/{to}")
+	@GetMapping("currency-exchange/from/{from}/to/{to}") 
 	public CurrencyConversion retrieveExchangeValue(@PathVariable("from") String from,
 												  @PathVariable("to") String to);
 
