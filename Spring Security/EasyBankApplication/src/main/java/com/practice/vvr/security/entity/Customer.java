@@ -12,7 +12,7 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String email;
-	private String pwd;
+	private String password;
 	private String role;
 
 	public int getId() {
@@ -31,12 +31,12 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getRole() {
