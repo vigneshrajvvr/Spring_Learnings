@@ -17,6 +17,8 @@ public class BasicAPI {
         System.out.println(Math.sqrt(9));
         System.out.println(Math.random());
         System.out.println(Math.rint(5.4));
+        System.out.println(Math.round(1.6));
+
 
         // DATE API
         System.out.println("DATE API");
@@ -29,7 +31,7 @@ public class BasicAPI {
 
         // Character wrapper class
         Character ch = 'a';
-        System.out.println(ch);
+        System.out.println(ch + " " + Character.toString('a') + ( 'A' + 32));
     }
 
 }
