@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("/api/posts")
 public class PostController {
 
+    // post service bean
     private PostService postService;
 
     public PostController(PostService postService) {
