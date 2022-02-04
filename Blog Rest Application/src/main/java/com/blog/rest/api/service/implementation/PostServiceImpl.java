@@ -4,7 +4,9 @@ import com.blog.rest.api.entity.Post;
 import com.blog.rest.api.payload.PostDto;
 import com.blog.rest.api.repository.PostRepository;
 import com.blog.rest.api.service.PostService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PostServiceImpl implements PostService {
 
     private PostRepository postRepository;
