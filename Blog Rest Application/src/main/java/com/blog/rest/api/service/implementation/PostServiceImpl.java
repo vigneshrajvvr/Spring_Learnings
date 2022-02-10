@@ -1,6 +1,7 @@
 package com.blog.rest.api.service.implementation;
 
 import com.blog.rest.api.entity.Post;
+import com.blog.rest.api.exception.ResourceNotFoundException;
 import com.blog.rest.api.payload.PostDto;
 import com.blog.rest.api.repository.PostRepository;
 import com.blog.rest.api.service.PostService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +41,14 @@ public class PostServiceImpl implements PostService {
         List<Post> posts = postRepository.findAll();
 
         return posts.stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+    }
+
+    @Override
+    public PostDto getPostById(Long id) {
+
+        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+
+        return mapToDto(post);
     }
 
     private PostDto mapToDto(Post post) {
