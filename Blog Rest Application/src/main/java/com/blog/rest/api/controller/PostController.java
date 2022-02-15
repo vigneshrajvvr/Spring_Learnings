@@ -1,7 +1,9 @@
 package com.blog.rest.api.controller;
 
+import com.blog.rest.api.entity.Post;
 import com.blog.rest.api.payload.PostDto;
 import com.blog.rest.api.service.PostService;
+import javafx.geometry.Pos;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,12 @@ public class PostController {
         return ResponseEntity.ok(postService.getPostById(id));
     }
 
+    // update post by id
+    @PutMapping("/{id}")
+    public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto, @PathVariable("id") Long id) {
+        PostDto postResponse = postService.updatePost(postDto, id);
 
+        return ResponseEntity.ok(postResponse);
+    }
 
 }
