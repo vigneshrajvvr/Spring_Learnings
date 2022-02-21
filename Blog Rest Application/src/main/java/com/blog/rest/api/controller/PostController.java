@@ -29,7 +29,10 @@ public class PostController {
 
     // get all posts
     @GetMapping
-    public ResponseEntity<List<PostDto>> getAllPosts() {
+    public ResponseEntity<List<PostDto>> getAllPosts(
+            @RequestParam(value = "pageNo", defaultValue = "0") int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = "10") int pageSize
+    ) {
         return ResponseEntity.ok(postService.getAllPosts());
     }
 
