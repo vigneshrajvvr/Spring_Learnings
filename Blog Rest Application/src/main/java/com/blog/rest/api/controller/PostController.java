@@ -33,7 +33,7 @@ public class PostController {
             @RequestParam(value = "pageNo", defaultValue = "0") int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "10") int pageSize
     ) {
-        return ResponseEntity.ok(postService.getAllPosts());
+        return ResponseEntity.ok(postService.getAllPosts(pageNo, pageSize));
     }
 
     // get post by id
