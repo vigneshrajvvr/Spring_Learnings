@@ -2,6 +2,7 @@ package com.blog.rest.api.controller;
 
 import com.blog.rest.api.entity.Post;
 import com.blog.rest.api.payload.PostDto;
+import com.blog.rest.api.payload.PostResponse;
 import com.blog.rest.api.service.PostService;
 import javafx.geometry.Pos;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class PostController {
 
     // get all posts
     @GetMapping
-    public ResponseEntity<List<PostDto>> getAllPosts(
+    public ResponseEntity<PostResponse> getAllPosts(
             @RequestParam(value = "pageNo", defaultValue = "0") int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "10") int pageSize
     ) {

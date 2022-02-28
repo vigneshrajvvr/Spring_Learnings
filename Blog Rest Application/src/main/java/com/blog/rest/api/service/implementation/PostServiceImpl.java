@@ -3,6 +3,7 @@ package com.blog.rest.api.service.implementation;
 import com.blog.rest.api.entity.Post;
 import com.blog.rest.api.exception.ResourceNotFoundException;
 import com.blog.rest.api.payload.PostDto;
+import com.blog.rest.api.payload.PostResponse;
 import com.blog.rest.api.repository.PostRepository;
 import com.blog.rest.api.service.PostService;
 import org.springframework.data.domain.Page;
@@ -34,7 +35,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getAllPosts(int pageNo, int pageSize) {
+    public PostResponse getAllPosts(int pageNo, int pageSize) {
 
         // create pageable instance
         Pageable pageable = PageRequest.of(pageNo, pageSize);
@@ -44,7 +45,16 @@ public class PostServiceImpl implements PostService {
         // get content for post object
         List<Post> listOfPosts = posts.getContent();
 
-        return listOfPosts.stream().map(this::mapToDto).collect(Collectors.toList());
+        List<PostDto> content = listOfPosts.stream().map(this::mapToDto).collect(Collectors.toList());
+
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(content);
+        postResponse.setPageNo(posts.getNumber());
+        postResponse.setPageSize(posts.getSize());
+        postResponse.setTotalElements(posts.getTotalElements());
+        postResponse.setTotalPages(posts.getTotalPages());
+
+        return postResponse;
     }
 
     @Override
