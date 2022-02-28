@@ -10,15 +10,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
 
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
 
     public PostServiceImpl(PostRepository postRepository) {
         this.postRepository = postRepository;
@@ -32,10 +30,7 @@ public class PostServiceImpl implements PostService {
 
         Post newPost = postRepository.save(post);
 
-        // convert entity to DTO
-        PostDto postResponse = mapToDto(newPost);
-
-        return postResponse;
+        return mapToDto(newPost);
     }
 
     @Override
@@ -49,7 +44,7 @@ public class PostServiceImpl implements PostService {
         // get content for post object
         List<Post> listOfPosts = posts.getContent();
 
-        return listOfPosts.stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+        return listOfPosts.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
     @Override
