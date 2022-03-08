@@ -7,6 +7,7 @@ import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
+// comnment resource
 @Entity
 @Table(name = "comments")
 @Data
