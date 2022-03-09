@@ -20,11 +20,10 @@ public class Comment {
     )
     private Long id;
 
+    private String name;
     private String body;
-
     private String email;
 
-    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", nullable = false)
