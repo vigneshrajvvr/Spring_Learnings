@@ -7,7 +7,6 @@ import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
-// comnment resource
 @Entity
 @Table(name = "comments")
 @Data
@@ -28,7 +27,7 @@ public class Comment {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
 }
