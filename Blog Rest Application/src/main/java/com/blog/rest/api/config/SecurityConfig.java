@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /*
+        basic authentication
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
