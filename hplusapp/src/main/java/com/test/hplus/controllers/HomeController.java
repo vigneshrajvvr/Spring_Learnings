@@ -1,4 +1,4 @@
-package com.test.hplus;
+package com.test.hplus.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,5 +10,11 @@ public class HomeController {
     public String goHome(){
         System.out.println("in home controller");
         return "index";
+    }
+
+    @GetMapping("/goToSearch")
+    public String goToSearch() {
+        System.out.println("going to search page");
+        return "search";
     }
 }
