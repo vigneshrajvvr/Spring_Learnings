@@ -18,7 +18,7 @@
 				</div>
 				<!-- branding -->
 				<ul class="navbar">
-                                <li><a href="#">home</a></li>
+                                <li><a href="/home">home</a></li>
                                 <li><a href="#">login</a></li>
                                 <li><a href="#">search</a></li>
                                 <li><a href="#">linkedin</a></li>
@@ -42,19 +42,17 @@
 		</div>
 	</section>
 	<!-- guarantee -->
-            <c:if test="{!empty(products)}">
+        <c:if test="${!empty(products)}">
     		<section id="products" class="section">
-
+        <c:forEach var="product" items="${products}">
     		<div class="productContainer">
-            <c:forEach var="product" items="${products}">
                 <div class="productContainerItem">
-            	    <img id="pic1" src="#">
+            	    <img id="pic1" src="${product.imagePath}">
             		<input type="text" name="product"
-            		       value="#"><br />
+            		       value="${product.name}"><br />
     			</div>
-            </c:forEach>
           	</div>
-
+        </c:forEach>
             </section>
             </c:if>
 

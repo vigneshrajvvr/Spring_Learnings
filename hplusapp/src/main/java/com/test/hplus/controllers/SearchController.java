@@ -24,8 +24,8 @@ public class SearchController {
         System.out.println("search criteria " + search);
 
         List<Product> products = new ArrayList<>();
-        System.out.println("Product List : " + products.toString());
         products = productRepository.searchByName(search);
+        System.out.println("Product List : " + products.toString());
         model.addAttribute("products", products);
         return "search";
     }
