@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -13,8 +14,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 import org.springframework.web.servlet.view.XmlViewResolver;
 
+import java.util.ResourceBundle;
 import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
@@ -54,10 +57,17 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         return threadPoolTaskExecutor;
     }
 
+//    @Bean
+//    public XmlViewResolver xmlViewResolver() {
+//        XmlViewResolver viewResolver = new XmlViewResolver();
+//        viewResolver.setLocation(new ClassPathResource("views.xml"));
+//        return viewResolver;
+//    }
+
     @Bean
-    public XmlViewResolver xmlViewResolver() {
-        XmlViewResolver viewResolver = new XmlViewResolver();
-        viewResolver.setLocation(new ClassPathResource("views.xml"));
+    public ResourceBundleViewResolver resourceBundleViewResolver() {
+        ResourceBundleViewResolver viewResolver = new ResourceBundleViewResolver();
+        viewResolver.setBasename("views");
         return viewResolver;
     }
 }
